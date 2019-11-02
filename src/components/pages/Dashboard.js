@@ -12,12 +12,12 @@ class Dashboard extends React.Component {
     return this.props.stations.map(station => {
       return (
         <div className="item" key={station.STID}>
-          <i className="large middle aligned icon camera" />
+          <i className="large middle aligned icon thermometer half" />
           <div className="content">
             <Link to={`/stations/${station.STID}`} className="header">
               {station.NAME}
             </Link>
-            <div className="description">{station.ELEVATION}</div>
+            <div className="description">{station.ELEVATION + " feet"} </div>
           </div>
         </div>
       );

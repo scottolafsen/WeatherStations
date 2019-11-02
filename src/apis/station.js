@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL:
-    "https://api.synopticdata.com/v2/stations/latest?stid=SOLBS,SOLMB&token=5f4bddebeaba4e6892eade4aa033e41b"
+  baseURL: "https://api.synopticdata.com/v2/stations"
 });
 
 // var tkn = "5f4bddebeaba4e6892eade4aa033e41b";

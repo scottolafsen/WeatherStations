@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Mount Superior Mountain Cam",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "Alta Ski Lifts",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "https://media.alta.com/resources/mtncam/Superior.jpg",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 2,
+    "name": "High Rustler Mountain Cam",
+    "description": "",
+    "owner": "Alta Ski Lifts",
+    "latitude": "40.591149",
+    "longitude": "-111.639663",
+    "url": "https://media.alta.com/resources/mtncam/Highrustler.jpg",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 3,
+    "name": "East Greeley Mountain Cam",
+    "description": "",
+    "owner": "Alta Ski Lifts",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "https://media.alta.com/resources/mtncam/Greeley.jpg",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 4,
+    "name": "Mount Superior Mountain Cam",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "Alta Ski Lifts",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "https://media.alta.com/resources/mtncam/Superior.jpg",
+    "zone": "Little Cottonwood Canyon"
+  }
+]

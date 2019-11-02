@@ -12,6 +12,12 @@ const Header = () => {
       <Link to="/" className="item">
         DashBoard
       </Link>
+      <Link to="/webcams" className="item">
+        Webcams
+      </Link>
+      <Link to="/map" className="item">
+        Map
+      </Link>
       <GoogleAuth />
     </div>
   );
