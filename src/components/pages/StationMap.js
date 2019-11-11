@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchStations } from "../../actions";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import wxStations from "./stid.json";
 // import { Link } from "react-router-dom";
 
 class StationMap extends React.Component {
@@ -11,13 +12,15 @@ class StationMap extends React.Component {
       longitude: -111.642995,
       width: "100vw",
       height: "100vh",
-      zoom: 10
+      zoom: 11
     },
     selectedStation: null
   };
 
   componentDidMount() {
-    this.props.fetchStations();
+    const time = "latest";
+    const stid = wxStations.central;
+    this.props.fetchStations(time, stid);
   }
 
   render() {
@@ -62,13 +65,18 @@ class StationMap extends React.Component {
                 </h4>
                 <h4>
                   {this.state.selectedStation.ELEVATION
-                    ? this.state.selectedStation.ELEVATION
+                    ? this.state.selectedStation.ELEVATION + " feet"
                     : ""}
                 </h4>
                 <h4>
                   {this.state.selectedStation.OBSERVATIONS.air_temp_value_1
-                    ? this.state.selectedStation.OBSERVATIONS.air_temp_value_1
-                        .value
+                    ? Math.round(
+                        (this.state.selectedStation.OBSERVATIONS
+                          .air_temp_value_1.value *
+                          9) /
+                          5 +
+                          32
+                      ) + "F"
                     : ""}
                 </h4>
               </div>

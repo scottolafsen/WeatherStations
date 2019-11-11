@@ -30,9 +30,10 @@ export const signOut = () => {
   };
 };
 
-export const fetchStations = () => async dispatch => {
+export const fetchStations = (time, stid) => async dispatch => {
+  const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
   const response = await station.get(
-    "/latest?stid=PKCU1, BRC, SOLSM, BRW, SOL, SOLAP, SOLBS, SOLMB, SOLHP, REY, UTSTR, UTTPD, UTCDF, SPC, MLDU1&token=5f4bddebeaba4e6892eade4aa033e41b"
+    `/${time}?stid=${stid}&token=${synopticApiKey}`
   );
 
   dispatch({ type: FETCH_STATIONS, payload: response.data.STATION });

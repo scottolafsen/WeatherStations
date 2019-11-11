@@ -30,11 +30,16 @@ class StationDetail extends React.Component {
     return (
       <div>
         <h1>{NAME ? NAME : ""}</h1>
-        <h1>{ELEVATION ? ELEVATION : null}</h1>
-        <h1>{air_temp_value_1 ? air_temp_value_1.value : null}</h1>
+        <h1>{ELEVATION ? ELEVATION + " feet" : null}</h1>
+        <h1>
+          {air_temp_value_1
+            ? Math.round((air_temp_value_1.value * 9) / 5 + 32) + "F"
+            : null}
+        </h1>
         <h1>
           {dew_point_temperature_value_1d
-            ? dew_point_temperature_value_1d.value
+            ? Math.round((dew_point_temperature_value_1d.value * 9) / 5 + 32) +
+              "F"
             : ""}
         </h1>
       </div>
