@@ -32,9 +32,11 @@ class Dashboard extends React.Component {
             </Link>
             <div className="description">{station.ELEVATION + " feet"} </div>
             <div className="description">
-              {air_temp_value_1
-                ? Math.round((air_temp_value_1.value * 9) / 5 + 32) + "F"
-                : null}{" "}
+              <strong>
+                {air_temp_value_1
+                  ? Math.round((air_temp_value_1.value * 9) / 5 + 32) + "F"
+                  : null}{" "}
+              </strong>
             </div>
             <div className="description">
               {wind_cardinal_direction_value_1d

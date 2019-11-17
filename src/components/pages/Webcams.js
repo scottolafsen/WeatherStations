@@ -9,7 +9,7 @@ const WebcamDetail = () => {
       {webcams.map(webcam => (
         <Link to={`/webcams/${webcam.id}`}>
           <img
-            className="ui large bordered image"
+            className="ui large bordered rounded image"
             key={webcam.id}
             alt={webcam.name}
             src={webcam.url}
