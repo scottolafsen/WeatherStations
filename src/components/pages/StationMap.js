@@ -45,7 +45,10 @@ class StationMap extends React.Component {
                   this.setState({ selectedStation: station });
                 }}
               >
-                {station.STID}
+                {station.OBSERVATIONS.air_temp_value_1
+                  ? Math.round(station.OBSERVATIONS.air_temp_value_1.value) +
+                    "F"
+                  : ""}
               </button>
             </Marker>
           ))}
@@ -71,11 +74,8 @@ class StationMap extends React.Component {
                 <h4>
                   {this.state.selectedStation.OBSERVATIONS.air_temp_value_1
                     ? Math.round(
-                        (this.state.selectedStation.OBSERVATIONS
-                          .air_temp_value_1.value *
-                          9) /
-                          5 +
-                          32
+                        this.state.selectedStation.OBSERVATIONS.air_temp_value_1
+                          .value
                       ) + "F"
                     : ""}
                 </h4>
@@ -96,7 +96,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchStations }
-)(StationMap);
+export default connect(mapStateToProps, { fetchStations })(StationMap);

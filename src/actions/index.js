@@ -32,16 +32,19 @@ export const signOut = () => {
 
 export const fetchStations = (time, stid) => async dispatch => {
   const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
+  const units = "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg";
   const response = await station.get(
-    `/${time}?stid=${stid}&token=${synopticApiKey}`
+    `/${time}?stid=${stid}&status=active&units=${units}&token=${synopticApiKey}`
   );
-
+  console.log(response);
   dispatch({ type: FETCH_STATIONS, payload: response.data.STATION });
 };
 
 export const fetchStation = id => async dispatch => {
+  const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
+  const units = "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg";
   const response = await station.get(
-    `/latest?stid=${id}&token=5f4bddebeaba4e6892eade4aa033e41b`
+    `/latest?stid=${id}&units=${units}&token=${synopticApiKey}`
   );
 
   dispatch({ type: FETCH_STATION, payload: response.data.STATION[0] });

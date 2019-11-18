@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchStation } from "../../actions";
-import Station from "../stations/StationObservation";
+// import Station from "../stations/StationObservation";
 import { Container, Grid, Table } from "semantic-ui-react";
 
 class StationDetail extends React.Component {
@@ -11,13 +11,12 @@ class StationDetail extends React.Component {
   renderObservation() {
     const obNames = Object.keys(this.props.station.OBSERVATIONS);
     const obs = Object.values(this.props.station.OBSERVATIONS);
-
     console.log(obs);
     return obs.map((ob, index) => {
       return (
-        <Table.Row>
+        <Table.Row key={obNames[index]}>
           <Table.Cell>{obNames[index]}</Table.Cell>
-          <Table.Cell>{ob.value}</Table.Cell>
+          <Table.Cell>{Math.round(ob.value)}</Table.Cell>
           <Table.Cell>{ob.date_time}</Table.Cell>
         </Table.Row>
       );
@@ -31,19 +30,14 @@ class StationDetail extends React.Component {
 
     const {
       NAME,
-      ELEVATION,
-      STATE,
-      LATITUDE,
-      LONGITUDE,
-      STATUS,
-      PERIOD_OF_RECORD
+      ELEVATION
+      // STATE,
+      // LATITUDE,
+      // LONGITUDE,
+      // STATUS,
+      // PERIOD_OF_RECORD
     } = this.props.station;
-    const {
-      air_temp_value_1,
-      dew_point_temperature_value_1d,
-      relative_humidity_value_1
-    } = this.props.station.OBSERVATIONS;
-    console.log(this.props.station.OBSERVATIONS);
+
     return (
       <div>
         <Container>

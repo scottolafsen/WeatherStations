@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
             <div className="description">
               <strong>
                 {air_temp_value_1
-                  ? Math.round((air_temp_value_1.value * 9) / 5 + 32) + "F"
+                  ? Math.round(air_temp_value_1.value) + "F"
                   : null}{" "}
               </strong>
             </div>
@@ -43,12 +43,10 @@ class Dashboard extends React.Component {
                 ? wind_cardinal_direction_value_1d.value
                 : null}{" "}
               {wind_speed_value_1
-                ? Math.round(wind_speed_value_1.value * 2.237) + "mph"
+                ? Math.round(wind_speed_value_1.value) + "mph"
                 : null}{" "}
               {wind_gust_value_1
-                ? "gusting " +
-                  Math.round(wind_gust_value_1.value * 2.237) +
-                  "mph"
+                ? "gusting " + Math.round(wind_gust_value_1.value) + "mph"
                 : null}{" "}
             </div>
           </div>
@@ -76,7 +74,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchStations }
-)(Dashboard);
+export default connect(mapStateToProps, { fetchStations })(Dashboard);
