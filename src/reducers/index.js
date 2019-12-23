@@ -1,8 +1,13 @@
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import stationReducer from "./stationReducer";
+import mapReducer from "./mapReducer";
+
+import popupReducer from "./popupReducer";
 
 export default combineReducers({
   auth: authReducer,
-  stations: stationReducer
+  stations: stationReducer,
+  map: mapReducer,
+  selectedStation: popupReducer
 });

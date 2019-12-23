@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchStation } from "../../actions";
 // import Station from "../stations/StationObservation";
-import { Container, Grid, Table } from "semantic-ui-react";
+import { Container, Grid, Table, Header } from "semantic-ui-react";
 
 class StationDetail extends React.Component {
   componentDidMount() {
@@ -30,8 +30,8 @@ class StationDetail extends React.Component {
 
     const {
       NAME,
-      ELEVATION
-      // STATE,
+      ELEVATION,
+      STATE
       // LATITUDE,
       // LONGITUDE,
       // STATUS,
@@ -42,8 +42,11 @@ class StationDetail extends React.Component {
       <div>
         <Container>
           <Grid.Row>
-            <h1>{NAME ? NAME : ""}</h1>
-            <h1>{ELEVATION ? ELEVATION + " feet" : null}</h1>
+            <Header size="large">
+              {NAME ? NAME : ""}
+              {STATE ? STATE : ""}
+              {ELEVATION + " Feet" ? ELEVATION : ""}
+            </Header>
           </Grid.Row>
           <Grid.Row>
             <Table celled fixed singleLine>

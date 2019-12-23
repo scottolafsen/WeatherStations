@@ -4,18 +4,24 @@ import {
   SIGN_OUT,
   FETCH_STATIONS,
   FETCH_STATION,
-  CHANGE_VIEWPORT
+  CHANGE_VIEWPORT,
+  SELECT_STATION
 } from "./types";
 import station from "../apis/station";
 
-export function changeViewport(mapState) {
+export const changeViewport = viewport => {
   return {
     type: CHANGE_VIEWPORT,
-    payload: {
-      mapState
-    }
+    payload: viewport
   };
-}
+};
+
+export const selectStation = station => {
+  return {
+    type: SELECT_STATION,
+    payload: station
+  };
+};
 
 export const signIn = userId => {
   return {
@@ -33,8 +39,11 @@ export const signOut = () => {
 export const fetchStations = (time, stid) => async dispatch => {
   const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
   const units = "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg";
+  const status = "active";
+  const network = "";
+  const sensors = "";
   const response = await station.get(
-    `/${time}?stid=${stid}&status=active&units=${units}&token=${synopticApiKey}`
+    `/${time}?stid=${stid}&status=${status}&vars=${sensors},pressure&units=${units}&token=${synopticApiKey}`
   );
   console.log(response);
   dispatch({ type: FETCH_STATIONS, payload: response.data.STATION });

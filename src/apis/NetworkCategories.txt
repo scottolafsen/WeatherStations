@@ -1,0 +1,14 @@
+ID	Description	Name
+1	Agricultural	AG
+2	Air Quality	AQ
+3	Offshore, CA, MX	EXT
+4	Federal and state networks	FED+
+5	Hydrological	HYDRO
+6	State and Local	LOCAL
+7	NWS/FAA	NWS
+8	CWOP	PUBLIC
+9	Fire weather	RAWS
+10	Road and rail weather	TRANS
+11	Public Utility	UTILITY
+12	Research and Education	RESEARCH
+13	Commercial	COMMERCIAL
