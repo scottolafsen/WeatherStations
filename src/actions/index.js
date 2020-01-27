@@ -5,8 +5,10 @@ import {
   FETCH_STATIONS,
   FETCH_STATION,
   CHANGE_VIEWPORT,
-  SELECT_STATION
+  SELECT_STATION,
+  SELECT_LABEL
 } from "./types";
+
 import station from "../apis/station";
 
 export const changeViewport = viewport => {
@@ -20,6 +22,13 @@ export const selectStation = station => {
   return {
     type: SELECT_STATION,
     payload: station
+  };
+};
+
+export const selectLabel = label => {
+  return {
+    type: SELECT_LABEL,
+    payload: label
   };
 };
 

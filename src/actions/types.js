@@ -3,4 +3,5 @@ export const SIGN_OUT = "SIGN_OUT";
 export const FETCH_STATIONS = "FETCH_STATIONS";
 export const FETCH_STATION = "FETCH_STATION";
 export const CHANGE_VIEWPORT = "CHANGE_VIEWPORT";
-export const SELECT_STATION = "SELECT_STATION ";
+export const SELECT_STATION = "SELECT_STATION";
+export const SELECT_LABEL = "SELECT_LABEL";

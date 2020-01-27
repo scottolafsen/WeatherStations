@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import Moment from "react-moment";
+// import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import "./style.css";
 
 const StationPopup = props => {
@@ -11,9 +12,18 @@ const StationPopup = props => {
     return obs.map((ob, index) => {
       return (
         <Table.Row key={obNames[index]}>
-          <Table.Cell>{obNames[index]}</Table.Cell>
-          <Table.Cell>{Math.round(ob.value)}</Table.Cell>
-          <Table.Cell>{ob.date_time}</Table.Cell>
+          <Table.Cell>
+            {obNames[index]
+              .split("_")
+              .slice(0, -2)
+              .join(" ")}
+          </Table.Cell>
+          <Table.Cell>
+            {isNaN(ob.value) ? ob.value : Math.round(ob.value)}
+          </Table.Cell>
+          <Table.Cell>
+            <Moment fromNow>{ob.date_time}</Moment>
+          </Table.Cell>
         </Table.Row>
       );
     });
@@ -31,6 +41,11 @@ const StationPopup = props => {
     // >
     <Table celled id="table">
       <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>{props.stationName}</Table.HeaderCell>
+          <Table.HeaderCell>{props.elevation} Ft</Table.HeaderCell>
+          <Table.HeaderCell></Table.HeaderCell>
+        </Table.Row>
         <Table.Row>
           <Table.HeaderCell>Observation</Table.HeaderCell>
           <Table.HeaderCell>Value</Table.HeaderCell>
