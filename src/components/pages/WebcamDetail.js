@@ -11,6 +11,7 @@ class WebcamDetail extends React.Component {
       <div>
         <img
           className="ui fluid bordered rounded image"
+          key={this.props.webcam.id}
           alt={this.props.webcam.name}
           src={this.props.webcam.url}
         ></img>

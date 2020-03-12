@@ -9,7 +9,8 @@ import {
 import ReactMapGL, { Marker } from "react-map-gl";
 import wxStations from "./stid.json";
 import StationPopup from "../stations/StationPopup";
-import { Container, Grid, Dropdown, Menu } from "semantic-ui-react";
+// import MapIcon from "../stations/Icon";
+import { Container, Grid, Dropdown, Menu, Table } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 
 class StationMap extends React.Component {
@@ -37,17 +38,6 @@ class StationMap extends React.Component {
           <Grid>
             <Grid.Row>
               <Grid.Column width={4}>
-                <Menu compact>
-                  <Dropdown
-                    text="Observation"
-                    options={options}
-                    simple
-                    item
-                    onChange={(event, data) =>
-                      this.props.selectLabel(data.value)
-                    }
-                  />
-                </Menu>
                 {this.props.selectedStation ? (
                   <StationPopup
                     elevation={this.props.selectedStation.ELEVATION}
@@ -60,57 +50,83 @@ class StationMap extends React.Component {
                 ) : null}
               </Grid.Column>
               <Grid.Column width={12}>
-                <ReactMapGL
-                  {...this.props.viewport}
-                  mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                  mapStyle="mapbox://styles/scottolafsen/ck2gn2wyq00q01coi2v8gamaz"
-                  onViewportChange={viewport =>
-                    this.props.changeViewport(viewport)
-                  }
-                >
-                  {this.props.stations.map(station => (
-                    <Marker
-                      key={station.NAME}
-                      latitude={parseFloat(station.LATITUDE)}
-                      longitude={parseFloat(station.LONGITUDE)}
-                    >
-                      <button
-                        className="marker-button"
-                        onClick={e => {
-                          e.preventDefault();
-                          this.props.selectStation(station);
-                        }}
+                <Grid.Row>
+                  <Table celled className="table">
+                    <Table.Header>
+                      <Table.Row>
+                        <Table.HeaderCell id="stnName">
+                          <Menu compact>
+                            <Dropdown
+                              text="Observation"
+                              options={options}
+                              simple
+                              item
+                              onChange={(event, data) =>
+                                this.props.selectLabel(data.value)
+                              }
+                            />
+                          </Menu>
+                        </Table.HeaderCell>
+                        <Table.HeaderCell id="stnEl"></Table.HeaderCell>
+                      </Table.Row>
+                    </Table.Header>
+                  </Table>
+                </Grid.Row>
+                <Grid.Row>
+                  <ReactMapGL
+                    {...this.props.viewport}
+                    mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+                    // mapStyle="mapbox://styles/scottolafsen/ck2gn2wyq00q01coi2v8gamaz"
+                    mapStyle="mapbox://styles/scottolafsen/cjusqhjkyfx1n1fo2uw8ctt79"
+                    onViewportChange={viewport =>
+                      this.props.changeViewport(viewport)
+                    }
+                  >
+                    {this.props.stations.map(station => (
+                      <Marker
+                        key={station.NAME}
+                        latitude={parseFloat(station.LATITUDE)}
+                        longitude={parseFloat(station.LONGITUDE)}
                       >
-                        {station.OBSERVATIONS.air_temp_value_1 &&
-                        this.props.selectedLabel.selectedLabel === 1
-                          ? Math.round(
-                              station.OBSERVATIONS.air_temp_value_1.value
-                            ) + " f"
-                          : station.OBSERVATIONS.wind_speed_value_1 &&
-                            this.props.selectedLabel.selectedLabel === 2
-                          ? Math.round(
-                              station.OBSERVATIONS.wind_speed_value_1.value
-                            ) + " mph"
-                          : station.OBSERVATIONS
-                              .wind_cardinal_direction_value_1d &&
-                            this.props.selectedLabel.selectedLabel === 3
-                          ? station.OBSERVATIONS
-                              .wind_cardinal_direction_value_1d.value
-                          : station.OBSERVATIONS.wind_gust_value_1 &&
-                            this.props.selectedLabel.selectedLabel === 4
-                          ? Math.round(
-                              station.OBSERVATIONS.wind_gust_value_1.value
-                            ) + " mph"
-                          : station.OBSERVATIONS.snow_depth_value_1 &&
-                            this.props.selectedLabel.selectedLabel === 5
-                          ? Math.round(
-                              station.OBSERVATIONS.snow_depth_value_1.value
-                            ) + " in"
-                          : null}
-                      </button>
-                    </Marker>
-                  ))}
-                </ReactMapGL>
+                        <button
+                          className="ui circular icon button "
+                          id="marker-button"
+                          onClick={e => {
+                            e.preventDefault();
+                            this.props.selectStation(station);
+                          }}
+                        >
+                          {station.OBSERVATIONS.air_temp_value_1 &&
+                          this.props.selectedLabel.selectedLabel === 1
+                            ? Math.round(
+                                station.OBSERVATIONS.air_temp_value_1.value
+                              ) + " f"
+                            : station.OBSERVATIONS.wind_speed_value_1 &&
+                              this.props.selectedLabel.selectedLabel === 2
+                            ? Math.round(
+                                station.OBSERVATIONS.wind_speed_value_1.value
+                              ) + " mph"
+                            : station.OBSERVATIONS
+                                .wind_cardinal_direction_value_1d &&
+                              this.props.selectedLabel.selectedLabel === 3
+                            ? station.OBSERVATIONS
+                                .wind_cardinal_direction_value_1d.value
+                            : station.OBSERVATIONS.wind_gust_value_1 &&
+                              this.props.selectedLabel.selectedLabel === 4
+                            ? Math.round(
+                                station.OBSERVATIONS.wind_gust_value_1.value
+                              ) + " mph"
+                            : station.OBSERVATIONS.snow_depth_value_1 &&
+                              this.props.selectedLabel.selectedLabel === 5
+                            ? Math.round(
+                                station.OBSERVATIONS.snow_depth_value_1.value
+                              ) + " in"
+                            : null}
+                        </button>
+                      </Marker>
+                    ))}
+                  </ReactMapGL>
+                </Grid.Row>
               </Grid.Column>
             </Grid.Row>
           </Grid>

@@ -18,9 +18,7 @@ class Dashboard extends React.Component {
         air_temp_value_1,
         wind_cardinal_direction_value_1d,
         wind_speed_value_1,
-        dew_point_temperature_value_1d,
-        wind_gust_value_1,
-        relative_humidity_value_1
+        wind_gust_value_1
       } = station.OBSERVATIONS;
 
       return (

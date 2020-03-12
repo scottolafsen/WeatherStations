@@ -63,30 +63,90 @@
     "id": 7,
     "name": "Moonbeam Cam",
     "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
-    "owner": "Alta Ski Lifts",
+    "owner": "Solitude",
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://webcams.solitudemountain.com/mbl.jpg",
-    "zone": "Little Cottonwood Canyon"
+    "zone": "Big Cottonwood Canyon"
   },
   {
     "id": 8,
     "name": "Roundhouse2 Cam",
     "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
-    "owner": "Alta Ski Lifts",
+    "owner": "Solitude",
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://webcams.solitudemountain.com/rh2.jpg",
-    "zone": "Little Cottonwood Canyon"
+    "zone": "Big Cottonwood Canyon"
   },
   {
     "id": 9,
     "name": "Powderhorn Cam",
     "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
-    "owner": "Alta Ski Lifts",
+    "owner": "Solitude",
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://webcams.solitudemountain.com/ph.jpg",
+    "zone": "Big Cottonwood Canyon"
+  },
+  {
+    "id": 10,
+    "name": "Dogwood",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "UDOT",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "http://udottraffic.utah.gov/1_devices/aux16212.jpeg",
+    "zone": "Big Cottonwood Canyon"
+  },
+  {
+    "id": 11,
+    "name": "MP 10",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "UDOT",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "http://udottraffic.utah.gov/1_devices/aux16214.jpeg",
+    "zone": "Big Cottonwood Canyon"
+  },
+  {
+    "id": 12,
+    "name": "MP 12",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "UDOT",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "http://udottraffic.utah.gov/1_devices/aux16216.jpeg",
+    "zone": "Big Cottonwood Canyon"
+  },
+  {
+    "id": 13,
+    "name": "MP 6",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "UDOT",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "http://udottraffic.utah.gov/1_devices/aux16265.jpeg",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 14,
+    "name": "Mouth",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "UDOT",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "http://udottraffic.utah.gov/1_devices/aux14604.jpeg",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 15,
+    "name": "MP 9",
+    "description": "Pointing due west from the Alta Cat Shop, this cam looks down Little Cottonwood Canyon with a great view of Mount Superior and especially Suicide Chute",
+    "owner": "UDOT",
+    "latitude": "40.590701",
+    "longitude": "-111.626864",
+    "url": "http://udottraffic.utah.gov/1_devices/aux16269.jpeg",
     "zone": "Little Cottonwood Canyon"
   }
 ]

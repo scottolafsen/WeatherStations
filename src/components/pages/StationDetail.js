@@ -6,18 +6,35 @@ import { Container, Grid, Table, Header } from "semantic-ui-react";
 
 class StationDetail extends React.Component {
   componentDidMount() {
+    console.log(this.props.match);
     this.props.fetchStation(this.props.match.params.id);
+  }
+  renderColumns() {
+    const colNames = Object.keys(this.props.station.OBSERVATIONS);
+    return colNames.map(col => {
+      return (
+        <Table.HeaderCell key={col}>
+          {col
+            .split("_")
+            .slice(0, -2)
+            .join(" ")}
+        </Table.HeaderCell>
+      );
+    });
   }
   renderObservation() {
     const obNames = Object.keys(this.props.station.OBSERVATIONS);
     const obs = Object.values(this.props.station.OBSERVATIONS);
-    console.log(obs);
-    return obs.map((ob, index) => {
+    const dateTime = obs[0];
+    return dateTime.map((d, index) => {
+      let i = index;
       return (
-        <Table.Row key={obNames[index]}>
-          <Table.Cell>{obNames[index]}</Table.Cell>
-          <Table.Cell>{Math.round(ob.value)}</Table.Cell>
-          <Table.Cell>{ob.date_time}</Table.Cell>
+        <Table.Row key={i}>
+          {obNames.map((ob, index) => {
+            let val = obs[index];
+            let cell = val[i];
+            return <Table.Cell key={index}>{cell}</Table.Cell>;
+          })}
         </Table.Row>
       );
     });
@@ -49,13 +66,9 @@ class StationDetail extends React.Component {
             </Header>
           </Grid.Row>
           <Grid.Row>
-            <Table celled fixed singleLine>
+            <Table celled singleLine>
               <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Observation</Table.HeaderCell>
-                  <Table.HeaderCell>Value</Table.HeaderCell>
-                  <Table.HeaderCell>date</Table.HeaderCell>
-                </Table.Row>
+                <Table.Row>{this.renderColumns()}</Table.Row>
               </Table.Header>
               <Table.Body>{this.renderObservation()}</Table.Body>
             </Table>
@@ -68,6 +81,7 @@ class StationDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    // station: state.stations.station
     station: state.stations[ownProps.match.params.id]
     // obs: state.stations[ownProps.match.params.id].OBSERVATIONS
   };

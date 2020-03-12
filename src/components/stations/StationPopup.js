@@ -1,6 +1,8 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 import Moment from "react-moment";
+import moment from "moment";
+
 // import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import "./style.css";
 
@@ -10,6 +12,8 @@ const StationPopup = props => {
     const obs = Object.values(props.observations);
     console.log(obs);
     return obs.map((ob, index) => {
+      let min = moment().diff(ob.date_time, "minutes");
+      console.log(min);
       return (
         <Table.Row key={obNames[index]}>
           <Table.Cell>
@@ -39,14 +43,14 @@ const StationPopup = props => {
     //     props.selectStation();
     //   }}
     // >
-    <Table celled id="table">
+    <Table celled className="table">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>{props.stationName}</Table.HeaderCell>
-          <Table.HeaderCell>{props.elevation} Ft</Table.HeaderCell>
+          <Table.HeaderCell id="stnName">{props.stationName}</Table.HeaderCell>
+          <Table.HeaderCell id="stnEl">{props.elevation} Ft</Table.HeaderCell>
           <Table.HeaderCell></Table.HeaderCell>
         </Table.Row>
-        <Table.Row>
+        <Table.Row id="stnOb">
           <Table.HeaderCell>Observation</Table.HeaderCell>
           <Table.HeaderCell>Value</Table.HeaderCell>
           <Table.HeaderCell>date</Table.HeaderCell>

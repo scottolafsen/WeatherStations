@@ -1,4 +1,4 @@
-import _ from "lodash";
+// import _ from "lodash";
 import { CHANGE_VIEWPORT } from "../actions/types";
 
 const INTIAL_STATE = {
