@@ -59,7 +59,7 @@ class StationDetail extends React.Component {
       <div>
         <Container>
           <Grid.Row>
-            <Header size="large">
+            <Header size="large" id="stnName">
               {NAME ? NAME : ""}
               {STATE ? STATE : ""}
               {ELEVATION + " Feet" ? ELEVATION : ""}
