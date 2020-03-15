@@ -45,16 +45,16 @@ export const signOut = () => {
   };
 };
 
-export const fetchStations = (time, stid) => async dispatch => {
+export const fetchStations = (time, stid, recent) => async dispatch => {
   const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
   const units = "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg";
   const status = "active";
-  // const network = "";
-  const sensors = "";
+  // const network;
+  const sensors = ",pressure";
   const response = await station.get(
-    `/${time}?stid=${stid}&status=${status}&vars=${sensors},pressure&units=${units}&token=${synopticApiKey}`
+    `/${time}?stid=${stid}&status=${status}&vars=${sensors}&recent=${recent}&units=${units}&token=${synopticApiKey}`
   );
-  console.log(response);
+  // console.log(response);
   dispatch({ type: FETCH_STATIONS, payload: response.data.STATION });
 };
 
@@ -64,7 +64,7 @@ export const fetchStation = id => async dispatch => {
   const response = await station.get(
     `/timeseries?stid=${id}&recent=1440&units=${units}&hfmetars=1&token=${synopticApiKey}`
   );
-  console.log(response);
+  // console.log(response);
   dispatch({ type: FETCH_STATION, payload: response.data.STATION[0] });
 };
 

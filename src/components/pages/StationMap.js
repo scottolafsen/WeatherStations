@@ -1,4 +1,5 @@
 import React from "react";
+import MapButton from "../comps/MapButton";
 import { connect } from "react-redux";
 import {
   fetchStations,
@@ -6,28 +7,30 @@ import {
   selectStation,
   selectLabel
 } from "../../actions";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL from "react-map-gl";
 import wxStations from "./stid.json";
-import StationPopup from "../stations/StationPopup";
+import StationPopup from "../comps/StationPopup";
 // import MapIcon from "../stations/Icon";
 import { Container, Grid, Dropdown, Menu, Table } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
+// import "./StationMap.css";
 
 class StationMap extends React.Component {
   componentDidMount() {
-    const time = "latest";
+    const time = "timeseries";
     const stid = wxStations.central;
-    this.props.fetchStations(time, stid);
+    const recent = "720";
+    this.props.fetchStations(time, stid, recent);
     // setTimeout = (this.props.selectLabel(this.props.selectedLabel + 1), 3000);
   }
 
   render() {
     const options = [
-      { key: 1, text: "Temp", value: 1 },
-      { key: 2, text: "Wind Speed", value: 2 },
-      { key: 3, text: "Wind Direction", value: 3 },
-      { key: 4, text: "Wind Gust", value: 4 },
-      { key: 5, text: "Snow Depth", value: 5 }
+      { key: 1, text: "Temp", value: "air_temp_set_1|f" },
+      { key: 2, text: "Wind Speed", value: "wind_speed_set_1|mph" },
+      { key: 3, text: "Wind Direction", value: "wind_direction_set_1| " },
+      { key: 4, text: "Wind Gust", value: "wind_gust_set_1|mph" },
+      { key: 5, text: "Snow Depth", value: 'snow_depth_set_1|"' }
     ];
 
     console.log(this.props);
@@ -82,49 +85,13 @@ class StationMap extends React.Component {
                       this.props.changeViewport(viewport)
                     }
                   >
-                    {this.props.stations.map(station => (
-                      <Marker
-                        key={station.NAME}
-                        latitude={parseFloat(station.LATITUDE)}
-                        longitude={parseFloat(station.LONGITUDE)}
-                      >
-                        <button
-                          className="ui circular icon button "
-                          id="marker-button"
-                          onClick={e => {
-                            e.preventDefault();
-                            this.props.selectStation(station);
-                          }}
-                        >
-                          {station.OBSERVATIONS.air_temp_value_1 &&
-                          this.props.selectedLabel.selectedLabel === 1
-                            ? Math.round(
-                                station.OBSERVATIONS.air_temp_value_1.value
-                              ) + " f"
-                            : station.OBSERVATIONS.wind_speed_value_1 &&
-                              this.props.selectedLabel.selectedLabel === 2
-                            ? Math.round(
-                                station.OBSERVATIONS.wind_speed_value_1.value
-                              ) + " mph"
-                            : station.OBSERVATIONS
-                                .wind_cardinal_direction_value_1d &&
-                              this.props.selectedLabel.selectedLabel === 3
-                            ? station.OBSERVATIONS
-                                .wind_cardinal_direction_value_1d.value
-                            : station.OBSERVATIONS.wind_gust_value_1 &&
-                              this.props.selectedLabel.selectedLabel === 4
-                            ? Math.round(
-                                station.OBSERVATIONS.wind_gust_value_1.value
-                              ) + " mph"
-                            : station.OBSERVATIONS.snow_depth_value_1 &&
-                              this.props.selectedLabel.selectedLabel === 5
-                            ? Math.round(
-                                station.OBSERVATIONS.snow_depth_value_1.value
-                              ) + " in"
-                            : null}
-                        </button>
-                      </Marker>
-                    ))}
+                    <MapButton
+                      stations={this.props.stations}
+                      selectedLabel={this.props.selectedLabel}
+                      selectStation={station =>
+                        this.props.selectStation(station)
+                      }
+                    />
                   </ReactMapGL>
                 </Grid.Row>
               </Grid.Column>
@@ -143,7 +110,7 @@ const mapStateToProps = state => {
     isSignedIn: state.auth.isSignedIn,
     viewport: state.map,
     selectedStation: state.selectedStation.selectedStation,
-    selectedLabel: state.selectedLabel
+    selectedLabel: state.selectedLabel.selectedLabel
   };
 };
 

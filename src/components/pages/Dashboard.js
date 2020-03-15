@@ -6,19 +6,19 @@ import wxStations from "./stid.json";
 
 class Dashboard extends React.Component {
   componentDidMount() {
-    const time = "latest";
+    const time = "timeseries";
     const stid = wxStations.central;
-    console.log(wxStations);
-    this.props.fetchStations(time, stid);
+    const recent = "720";
+    this.props.fetchStations(time, stid, recent);
   }
 
   renderList() {
     return this.props.stations.map(station => {
       const {
-        air_temp_value_1,
-        wind_cardinal_direction_value_1d,
-        wind_speed_value_1,
-        wind_gust_value_1
+        air_temp_set_1,
+        wind_cardinal_direction_set_1d,
+        wind_speed_set_1,
+        wind_gust_set_1
       } = station.OBSERVATIONS;
 
       return (
@@ -31,20 +31,18 @@ class Dashboard extends React.Component {
             <div className="description">{station.ELEVATION + " feet"} </div>
             <div className="description">
               <strong>
-                {air_temp_value_1
-                  ? Math.round(air_temp_value_1.value) + "F"
-                  : null}{" "}
+                {air_temp_set_1 ? Math.round(air_temp_set_1[0]) + "F" : null}{" "}
               </strong>
             </div>
             <div className="description">
-              {wind_cardinal_direction_value_1d
-                ? wind_cardinal_direction_value_1d.value
+              {wind_cardinal_direction_set_1d
+                ? wind_cardinal_direction_set_1d[0]
                 : null}{" "}
-              {wind_speed_value_1
-                ? Math.round(wind_speed_value_1.value) + "mph"
+              {wind_speed_set_1
+                ? Math.round(wind_speed_set_1[0]) + "mph"
                 : null}{" "}
-              {wind_gust_value_1
-                ? "gusting " + Math.round(wind_gust_value_1.value) + "mph"
+              {wind_gust_set_1
+                ? "gusting " + Math.round(wind_gust_set_1[0]) + "mph"
                 : null}{" "}
             </div>
           </div>

@@ -22,6 +22,12 @@
   background-color: rgb(103, 159, 255);
   font-weight: bolder;
 }
+
+#marker-button-select {
+  color: rgb(255, 255, 255);
+  background-color: rgb(190, 0, 0);
+  font-weight: bolder;
+}
 table {
   width: 25vw;
 }

@@ -8,7 +8,7 @@ const INTIAL_STATE = {
 export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
     case SELECT_STATION:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         selectedStation: action.payload
