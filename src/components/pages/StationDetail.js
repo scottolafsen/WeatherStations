@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchStation } from "../../actions";
 // import Station from "../stations/StationObservation";
 import { Container, Grid, Table, Header } from "semantic-ui-react";
+import Moment from "moment";
 
 class StationDetail extends React.Component {
   componentDidMount() {
@@ -14,26 +15,30 @@ class StationDetail extends React.Component {
     return colNames.map(col => {
       return (
         <Table.HeaderCell key={col}>
-          {col
-            .split("_")
-            .slice(0, -2)
-            .join(" ")}
+          {col.split("set")[0].replace(/_/g, " ")}
         </Table.HeaderCell>
       );
     });
   }
   renderObservation() {
     const obNames = Object.keys(this.props.station.OBSERVATIONS);
+    console.log(obNames);
     const obs = Object.values(this.props.station.OBSERVATIONS);
     const dateTime = obs[0];
+    const iterator = dateTime.length;
     return dateTime.map((d, index) => {
       let i = index;
       return (
         <Table.Row key={i}>
           {obNames.map((ob, index) => {
             let val = obs[index];
-            let cell = val[i];
-            return <Table.Cell key={index}>{cell}</Table.Cell>;
+            let cell = val[iterator - i - 1];
+            if (ob === "date_time") {
+              let parsed = cell.slice(0, -1);
+              return <Table.Cell key={index}>{cell}</Table.Cell>;
+            } else {
+              return <Table.Cell key={index}>{cell}</Table.Cell>;
+            }
           })}
         </Table.Row>
       );
