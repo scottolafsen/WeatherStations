@@ -89,9 +89,37 @@
   border: 2px solid whitesmoke;
   /* font-size: large; */
 }
-#plussixty {
+#subsixtyfive {
   color: rgb(255, 255, 255);
-  background-color: rgb(12, 70, 0);
+  background-color: rgb(13, 70, 1);
+  font-weight: bolder;
+  border: 2px solid whitesmoke;
+  /* font-size: large; */
+}
+#subseventy {
+  color: rgb(0, 0, 0);
+  background-color: rgb(219, 255, 87);
+  font-weight: bolder;
+  border: 2px solid whitesmoke;
+  /* font-size: large; */
+}
+#subseventyfive {
+  color: rgb(255, 255, 255);
+  background-color: rgb(148, 189, 2);
+  font-weight: bolder;
+  border: 2px solid whitesmoke;
+  /* font-size: large; */
+}
+#subeighty {
+  color: rgb(255, 255, 255);
+  background-color: rgb(218, 19, 5);
+  font-weight: bolder;
+  border: 2px solid whitesmoke;
+  /* font-size: large; */
+}
+#pluseighty {
+  color: rgb(255, 255, 255);
+  background-color: rgb(150, 0, 0);
   font-weight: bolder;
   border: 2px solid whitesmoke;
   /* font-size: large; */

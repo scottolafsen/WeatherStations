@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 
-const TempColor = value => {
+const TempColor = (value) => {
   if (value < 0) {
     return "subzero";
   }
@@ -40,9 +40,62 @@ const TempColor = value => {
   if (value < 60) {
     return "subsixty";
   }
-  if (value > 59) {
-    return "plussixty";
+  if (value < 65) {
+    return "subsixtyfive";
+  }
+  if (value < 70) {
+    return "subseventy";
+  }
+  if (value < 75) {
+    return "subseventyfive";
+  }
+  if (value < 80) {
+    return "subeighty";
+  }
+  if (value > 79) {
+    return "pluseighty";
   }
 };
 
 export default TempColor;
+
+export const SnowDiffColor = (value) => {
+  if (value < 0) {
+    return "negative";
+  }
+  if (value === 0) {
+    return "even";
+  }
+  if (value > 0) {
+    return "positive";
+  }
+};
+
+export const SnowColor = (value) => {
+  if (value < 50) {
+    return "lowsnow";
+  }
+  if (value > 50 && value < 100) {
+    return "mediumsnow";
+  }
+  if (value > 100) {
+    return "highsnow";
+  }
+};
+export const SWEPercentColor = (value) => {
+  if (value < 50) {
+    return "lowestSWE";
+  }
+  if (value > 49 && value < 75) {
+    return "lowSWE";
+  }
+  if (value > 74 && value < 100) {
+    return "mediumSWE";
+  }
+  if (value > 99 && value < 125) {
+    return "highSWE";
+  }
+  if (value > 124) {
+    return "highestSWE";
+  }
+};

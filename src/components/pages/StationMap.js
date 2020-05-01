@@ -5,7 +5,7 @@ import {
   fetchStations,
   changeViewport,
   selectStation,
-  selectLabel
+  selectLabel,
 } from "../../actions";
 import ReactMapGL from "react-map-gl";
 import wxStations from "./stid.json";
@@ -13,7 +13,7 @@ import StationPopup from "../comps/StationPopup";
 // import MapIcon from "../stations/Icon";
 import { Container, Grid, Dropdown, Menu, Table } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
-// import "./StationMap.css";
+import "./StationMap.css";
 
 class StationMap extends React.Component {
   componentDidMount() {
@@ -30,87 +30,63 @@ class StationMap extends React.Component {
       { key: 2, text: "Wind Speed", value: "wind_speed_set_1|mph" },
       { key: 3, text: "Wind Direction", value: "wind_direction_set_1| " },
       { key: 4, text: "Wind Gust", value: "wind_gust_set_1|mph" },
-      { key: 5, text: "Snow Depth", value: 'snow_depth_set_1|"' }
+      { key: 5, text: "Snow Depth", value: 'snow_depth_set_1|"' },
+      { key: 6, text: "Snow Water Equiv", value: "snow_water_equiv_set_1|%" },
     ];
 
     console.log(this.props);
 
     return (
-      <div>
-        <Container fluid>
-          <Grid>
-            <Grid.Row>
-              <Grid.Column width={4}>
-                {this.props.selectedStation ? (
-                  <StationPopup
-                    elevation={this.props.selectedStation.ELEVATION}
-                    stationName={this.props.selectedStation.NAME}
-                    observations={this.props.selectedStation.OBSERVATIONS}
-                    latitude={this.props.selectedStation.LATITUDE}
-                    longitude={this.props.selectedStation.LONGITUDE}
-                    selectStation={() => this.props.selectStation(null)}
-                  />
-                ) : null}
-              </Grid.Column>
-              <Grid.Column width={12}>
-                <Grid.Row>
-                  <Table celled className="table">
-                    <Table.Header>
-                      <Table.Row>
-                        <Table.HeaderCell id="stnName">
-                          <Menu compact>
-                            <Dropdown
-                              text="Observation"
-                              options={options}
-                              simple
-                              item
-                              onChange={(event, data) =>
-                                this.props.selectLabel(data.value)
-                              }
-                            />
-                          </Menu>
-                        </Table.HeaderCell>
-                        <Table.HeaderCell id="stnEl"></Table.HeaderCell>
-                      </Table.Row>
-                    </Table.Header>
-                  </Table>
-                </Grid.Row>
-                <Grid.Row>
-                  <ReactMapGL
-                    {...this.props.viewport}
-                    mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                    // mapStyle="mapbox://styles/scottolafsen/ck2gn2wyq00q01coi2v8gamaz"
-                    mapStyle="mapbox://styles/scottolafsen/cjusqhjkyfx1n1fo2uw8ctt79"
-                    onViewportChange={viewport =>
-                      this.props.changeViewport(viewport)
-                    }
-                  >
-                    <MapButton
-                      stations={this.props.stations}
-                      selectedLabel={this.props.selectedLabel}
-                      selectStation={station =>
-                        this.props.selectStation(station)
-                      }
-                    />
-                  </ReactMapGL>
-                </Grid.Row>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Container>
+      <div id="map">
+        <Menu compact>
+          <Dropdown
+            text="Observation"
+            options={options}
+            simple
+            item
+            onChange={(event, data) => this.props.selectLabel(data.value)}
+          />
+        </Menu>
+        <ReactMapGL
+          {...this.props.viewport}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          // mapStyle="mapbox://styles/scottolafsen/ck2gn2wyq00q01coi2v8gamaz"
+          mapStyle="mapbox://styles/scottolafsen/cjusqhjkyfx1n1fo2uw8ctt79"
+          onViewportChange={(viewport) => this.props.changeViewport(viewport)}
+        >
+          <MapButton
+          // stations={this.props.stations}
+          // selectedLabel={this.props.selectedLabel}
+          // selectStation={station =>
+          //   this.props.selectStation(station)
+          // }
+          />
+          {this.props.selectedStation ? (
+            <StationPopup
+              selectedLabel={this.props.selectedLabel}
+              elevation={this.props.selectedStation.ELEVATION}
+              stationName={this.props.selectedStation.NAME}
+              STID={this.props.selectedStation.STID}
+              observations={this.props.selectedStation.OBSERVATIONS}
+              latitude={this.props.selectedStation.LATITUDE}
+              longitude={this.props.selectedStation.LONGITUDE}
+              selectStation={() => this.props.selectStation(null)}
+            />
+          ) : null}
+        </ReactMapGL>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     stations: Object.values(state.stations),
     currentUserId: state.auth.userId,
     isSignedIn: state.auth.isSignedIn,
     viewport: state.map,
     selectedStation: state.selectedStation.selectedStation,
-    selectedLabel: state.selectedLabel.selectedLabel
+    selectedLabel: state.selectedLabel.selectedLabel,
   };
 };
 
@@ -118,5 +94,5 @@ export default connect(mapStateToProps, {
   fetchStations,
   changeViewport,
   selectStation,
-  selectLabel
+  selectLabel,
 })(StationMap);

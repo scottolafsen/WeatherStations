@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { fetchStation } from "../../actions";
 // import Station from "../stations/StationObservation";
 import { Container, Grid, Table, Header } from "semantic-ui-react";
-import Moment from "moment";
+import moment from "moment";
+import Chart from "../comps/Chart";
 
 class StationDetail extends React.Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class StationDetail extends React.Component {
   }
   renderObservation() {
     const obNames = Object.keys(this.props.station.OBSERVATIONS);
-    console.log(obNames);
+    // console.log(obNames);
     const obs = Object.values(this.props.station.OBSERVATIONS);
     const dateTime = obs[0];
     const iterator = dateTime.length;
@@ -34,8 +35,12 @@ class StationDetail extends React.Component {
             let val = obs[index];
             let cell = val[iterator - i - 1];
             if (ob === "date_time") {
-              let parsed = cell.slice(0, -1);
-              return <Table.Cell key={index}>{cell}</Table.Cell>;
+              let parsed = moment
+                .utc(cell)
+                .local()
+                .format("dddd hh:mm a");
+              // console.log(parsed);
+              return <Table.Cell key={index}>{parsed}</Table.Cell>;
             } else {
               return <Table.Cell key={index}>{cell}</Table.Cell>;
             }
@@ -78,6 +83,7 @@ class StationDetail extends React.Component {
               <Table.Body>{this.renderObservation()}</Table.Body>
             </Table>
           </Grid.Row>
+          <Grid.Row>{<Chart stations={this.props.station} />}</Grid.Row>
         </Container>
       </div>
     );

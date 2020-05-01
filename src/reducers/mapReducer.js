@@ -2,18 +2,18 @@
 import { CHANGE_VIEWPORT } from "../actions/types";
 
 const INTIAL_STATE = {
-  latitude: 40.63286709946089,
-  longitude: -111.61777138698183,
-  width: "70vw",
-  height: "90vh",
-  zoom: 12.082755373129745,
-  pitch: 43.853338363270915,
-  bearing: 141.56250000000003,
+  latitude: 40.5922384102421,
+  longitude: -111.62833529913556,
+  width: "100vw",
+  height: "85vh",
+  zoom: 11.413080689976473,
+  pitch: 36.78571428571429,
+  bearing: 1.2890625000000284,
   altitude: 1.5,
   maxZoom: 24,
   minZoom: 0,
   maxPitch: 60,
-  minPitch: 0
+  minPitch: 0,
 };
 // width: 1344
 // height: 778
@@ -35,7 +35,7 @@ export default (state = INTIAL_STATE, action) => {
         maxZoom: action.payload.maxZoom,
         minZoom: action.payload.minZoom,
         maxPitch: action.payload.maxPitch,
-        minPitch: action.payload.minPitch
+        minPitch: action.payload.minPitch,
       };
     default:
       return state;

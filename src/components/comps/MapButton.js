@@ -1,60 +1,84 @@
 import React from "react";
+import { connect } from "react-redux";
+import { selectStation, selectLabel } from "../../actions";
 import ReactMapGL, { Marker } from "react-map-gl";
-import TempColor from "./ObColor";
+import SnowButton from "./ButtonSnow";
+import TempButton from "./ButtonTemp";
+import WindButton from "./ButtonWind";
+import SWEButton from "./ButtonSWE";
+
 import "./temp-color.css";
+import "./change-color.css";
 
-const MapButton = props => {
-  let dropdown = props.selectedLabel.split("|");
-  let mapOb = dropdown[0];
-  let unit = dropdown[1];
-  let stations = props.stations;
-
-  let stationsFilter = stations.filter(function(station) {
-    let obNames = Object.keys(station.OBSERVATIONS);
-    return obNames.includes(mapOb);
-  });
-
-  return stationsFilter.map(station => {
-    let obNames = Object.keys(station.OBSERVATIONS);
-    let values = Object.values(station.OBSERVATIONS);
-    let index = obNames.indexOf(mapOb);
-    let data = values[index];
-    let idVal;
-    let className;
-
-    switch (unit) {
-      case "f":
-        idVal = TempColor(data[data.length - 1]);
-        break;
-      case "mph":
-        idVal = "wind";
-        break;
-      case '"':
-        idVal = "snow";
-        className = "";
-        break;
-      default:
-        idVal = "marker-button";
-    }
-    return (
-      <Marker
-        key={station.NAME}
-        latitude={parseFloat(station.LATITUDE)}
-        longitude={parseFloat(station.LONGITUDE)}
-      >
-        <button
-          className="ui circular icon button"
-          id={idVal}
-          onClick={() => {
-            // id = "marker-button-select";
-            props.selectStation(station);
-          }}
+class MapButton extends React.Component {
+  renderStations() {
+    let dropdown = this.props.selectedLabel.split("|");
+    let mapOb = dropdown[0];
+    let unit = dropdown[1];
+    let stations = this.props.stations;
+    let stationsFilter = stations.filter(function (station) {
+      let obNames = Object.keys(station.OBSERVATIONS);
+      return obNames.includes(mapOb);
+    });
+    return stationsFilter.map((station) => {
+      let obNames = Object.keys(station.OBSERVATIONS);
+      let values = Object.values(station.OBSERVATIONS);
+      let index = obNames.indexOf(mapOb);
+      let data = values[index];
+      return (
+        <Marker
+          key={station.NAME}
+          latitude={parseFloat(station.LATITUDE)}
+          longitude={parseFloat(station.LONGITUDE)}
         >
-          {Math.round(data[data.length - 1]) + unit}
-        </button>
-      </Marker>
-    );
-  });
+          {mapOb === "air_temp_set_1" ? (
+            <TempButton
+              unit={unit}
+              data={data}
+              station={station}
+              selectStation={(station) => this.props.selectStation(station)}
+            />
+          ) : mapOb === "wind_speed_set_1" ? (
+            <WindButton
+              unit={unit}
+              data={data}
+              station={station}
+              selectStation={(station) => this.props.selectStation(station)}
+            />
+          ) : mapOb === "snow_depth_set_1" ? (
+            <SnowButton
+              unit={unit}
+              data={data}
+              station={station}
+              selectStation={(station) => this.props.selectStation(station)}
+            />
+          ) : mapOb === "snow_water_equiv_set_1" ? (
+            <SWEButton
+              unit={unit}
+              data={data}
+              station={station}
+              selectStation={(station) => this.props.selectStation(station)}
+            />
+          ) : null}
+        </Marker>
+      );
+    });
+  }
+
+  render() {
+    return <div>{this.renderStations()}</div>;
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    stations: Object.values(state.stations),
+    selectedStation: state.selectedStation.selectedStation,
+    selectedLabel: state.selectedLabel.selectedLabel,
+  };
 };
 
-export default MapButton;
+export default connect(mapStateToProps, {
+  selectStation,
+  selectLabel,
+})(MapButton);
