@@ -28,6 +28,11 @@
   background-color: rgb(190, 0, 0);
   font-weight: bolder;
 }
-table {
-  width: 25vw;
+#popup {
+  max-width: 100%;
+  max-height: 100%;
 }
+/* .mapboxgl-popup-content {
+  max-width: 50%;
+  max-height: 40%;
+} */

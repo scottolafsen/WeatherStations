@@ -73,9 +73,9 @@ const StationPopup = (props) => {
 
   return (
     <Popup
-      offsetLeft={-100}
-      offsetTop={-100}
-      maxWidth={50}
+      // offsetLeft={-100}
+      // offsetTop={-100}
+      // maxWidth={25}
       closeOnClick={false}
       latitude={parseFloat(props.latitude)}
       longitude={parseFloat(props.longitude)}
@@ -85,7 +85,7 @@ const StationPopup = (props) => {
         props.selectStation();
       }}
     >
-      <Table celled className="table">
+      <Table small collapsing columns={2} id={"popup"}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell id="stnName">
