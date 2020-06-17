@@ -1,5 +1,4 @@
 {
-  "homepage": "https://scottolafsen.github.io/WeatherStations",
   "name": "wwx",
   "version": "0.1.0",
   "private": true,
@@ -24,10 +23,9 @@
     "victory": "^34.1.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "heroku-postbuild": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -45,8 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^2.2.0"
   }
 }
