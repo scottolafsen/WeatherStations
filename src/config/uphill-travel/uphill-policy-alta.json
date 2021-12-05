@@ -1,0 +1,22 @@
+[
+  {
+    "resort": "Alta Ski Lifts",
+    "policyDescription": "Alta Ski Area is now closed to Uphill Travel for the season. The Summer Road is open with access to Grizzly Gulch and Catherine's Pass.",
+    "offSeasonPolicy": "",
+    "link": "https://www.alta.com/uphill-travel",
+    "routes": [
+      {
+        "name": "Summer road to Catherines Pass",
+        "days": [7],
+        "hours": "24",
+        "polyline": null
+      },
+      {
+        "name": "Summer road to Gizzly Gulch",
+        "days": [7],
+        "hours": "24",
+        "polyline": null
+      }
+    ]
+  }
+]

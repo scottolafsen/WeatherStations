@@ -1,0 +1,31 @@
+{
+  "folders": [
+	{
+		"path": "..\\..\\.."
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\UdemyReact\\MERNStack\\DevConnector"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\django\\Pollster_project"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\..\\UofU\\project3"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\API"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\React_Templates\\Hooks"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\NextJs\\Brad_App"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\..\\UofU\\portfolio"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\..\\python\\vw"
+	}
+]
+}

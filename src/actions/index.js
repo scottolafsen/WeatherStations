@@ -6,61 +6,61 @@ import {
   FETCH_STATION,
   CHANGE_VIEWPORT,
   SELECT_STATION,
-  SELECT_LABEL
-} from "./types";
+  SELECT_LABEL,
+} from './types';
 
-import station from "../apis/station";
+import station from '../apis/station';
 
-export const changeViewport = viewport => {
+export const changeViewport = (viewport) => {
   return {
     type: CHANGE_VIEWPORT,
-    payload: viewport
+    payload: viewport,
   };
 };
 
-export const selectStation = station => {
+export const selectStation = (station) => {
   return {
     type: SELECT_STATION,
-    payload: station
+    payload: station,
   };
 };
 
-export const selectLabel = label => {
+export const selectLabel = (label) => {
   return {
     type: SELECT_LABEL,
-    payload: label
+    payload: label,
   };
 };
 
-export const signIn = userId => {
+export const signIn = (userId) => {
   return {
     type: SIGN_IN,
-    payload: userId
+    payload: userId,
   };
 };
 
 export const signOut = () => {
   return {
-    type: SIGN_OUT
+    type: SIGN_OUT,
   };
 };
 
-export const fetchStations = (time, stid, recent) => async dispatch => {
+export const fetchStations = (time, stid, recent) => async (dispatch) => {
   const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
-  const units = "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg";
-  const status = "active";
+  const units = 'temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg';
+  const status = 'active';
   // const network;
-  const sensors = ",pressure";
+  const sensors = ',pressure';
   const response = await station.get(
     `/${time}?stid=${stid}&status=${status}&vars=${sensors}&recent=${recent}&units=${units}&token=${synopticApiKey}`
   );
-  // console.log(response);
+  console.log(response);
   dispatch({ type: FETCH_STATIONS, payload: response.data.STATION });
 };
 
-export const fetchStation = id => async dispatch => {
+export const fetchStation = (id) => async (dispatch) => {
   const synopticApiKey = process.env.REACT_APP_SYNOPTIC_API;
-  const units = "temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg";
+  const units = 'temp|F,speed|mph,pres|mb,height|ft,precip|in,alti|inhg';
   const response = await station.get(
     `/timeseries?stid=${id}&recent=1440&units=${units}&hfmetars=1&token=${synopticApiKey}`
   );

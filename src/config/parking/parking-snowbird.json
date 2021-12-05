@@ -1,0 +1,113 @@
+[
+  {
+    "resort": "Snowbird",
+    "reservationLink": "https://reserve.altaparking.com/",
+    "policyLink": "https://www.snowbird.com/parking/",
+    "effective-date": {
+      "start": "12/18/2021",
+      "end": "4/3/2022"
+    },
+    "lots": {
+      "enforced": ["Lower Gad Valley", "Pond", "Bypass Road"],
+      "free": [
+        "Entry 1 (west of Creekside)",
+        "Upper Gad Valley Lot",
+        "Wilbere Hill",
+        "Main Lot",
+        "Chickadee Hill & Superior Lot (when available)",
+        "The Bypass Road (excluding the Preferred Parking area)",
+        "SR-210 between Entry 1 and 4"
+      ],
+      "carpool": [
+        "Pond Lot",
+        "Upper Gad Valley Lot on the South Side",
+        "Entry 4 near the top of Chickadee"
+      ]
+    },
+    "day": {
+      "monday": {
+        "isEnforced": false,
+        "start": null,
+        "end": null
+      },
+      "tuesday": {
+        "isEnforced": false,
+        "start": null,
+        "end": null
+      },
+      "wednesday": {
+        "isEnforced": false,
+        "start": null,
+        "end": null
+      },
+      "thursday": {
+        "isEnforced": false,
+        "start": null,
+        "end": null
+      },
+      "friday": {
+        "isEnforced": false,
+        "start": null,
+        "end": null
+      },
+      "saturday": {
+        "isEnforced": true,
+        "start": "0800",
+        "end": "1300"
+      },
+      "sunday": {
+        "isEnforced": true,
+        "start": "0800",
+        "end": "1300"
+      },
+      "holiday": {
+        "isEnforced": true,
+        "start": "0800",
+        "end": "1300",
+        "dates": [
+          "12/23/2021",
+          "12/24/2021",
+          "12/27/2021",
+          "12/28/2021",
+          "12/29/2021",
+          "12/30/2021",
+          "12/31/2021",
+          "1/17/2021",
+          "2/21/2021"
+        ]
+      }
+    },
+    "violation": "The fine for parking without a reservation will be $75.",
+    "passPolicy": {
+      "seasonPass": {
+        "needReservation": true,
+        "cost": false,
+        "description": [
+          "Will recieve parking code via email.",
+          "If free passholder reservations are not canceled within the cancellation period then passholder reservation benefits will be paused until a $25 no-show fee is paid",
+          "Qualifying Alta passholders will receive parking code(s) that can be used to book free parking reservations. Parking codes may be reused once the active reservation date has passed."
+        ]
+      },
+      "dayPassWeb": {
+        "needReservation": true,
+        "cost": 10,
+        "description": "Will recieve parking code via email."
+      },
+      "dayPassWindow": {
+        "needReservation": true,
+        "cost": 10,
+        "description": "Will recieve parking code via email."
+      },
+      "ikon": {
+        "needReservation": true,
+        "cost": 25,
+        "description": "Make Reservation Online"
+      },
+      "epic": {
+        "needReservation": true,
+        "cost": 25,
+        "description": "Make Reservation Online"
+      }
+    }
+  }
+]

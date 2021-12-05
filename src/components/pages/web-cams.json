@@ -7,6 +7,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://altaskiarea.s3-us-west-2.amazonaws.com/mountain-cams/Superior.jpg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -17,6 +18,7 @@
     "latitude": "40.591149",
     "longitude": "-111.639663",
     "url": "https://altaskiarea.s3-us-west-2.amazonaws.com/mountain-cams/Highrustler.jpg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -27,6 +29,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://altaskiarea.s3-us-west-2.amazonaws.com/mountain-cams/Greeley.jpg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -37,6 +40,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://altaskiarea.s3-us-west-2.amazonaws.com/mountain-cams/Devilscastle.jpg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -47,6 +51,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://altaskiarea.s3-us-west-2.amazonaws.com/mountain-cams/sugar_peak.jpg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -57,6 +62,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://altaskiarea.s3-us-west-2.amazonaws.com/mountain-cams/collins_dtc.jpg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -67,6 +73,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://webcams.solitudemountain.com/mbl.jpg",
+    "type": "webcam",
     "zone": "Big Cottonwood Canyon"
   },
   {
@@ -77,6 +84,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://webcams.solitudemountain.com/rh2.jpg",
+    "type": "webcam",
     "zone": "Big Cottonwood Canyon"
   },
   {
@@ -87,6 +95,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "https://webcams.solitudemountain.com/ph.jpg",
+    "type": "webcam",
     "zone": "Big Cottonwood Canyon"
   },
   {
@@ -97,6 +106,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "http://udottraffic.utah.gov/1_devices/aux16212.jpeg",
+    "type": "webcam",
     "zone": "Big Cottonwood Canyon"
   },
   {
@@ -107,6 +117,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "http://udottraffic.utah.gov/1_devices/aux16214.jpeg",
+    "type": "webcam",
     "zone": "Big Cottonwood Canyon"
   },
   {
@@ -117,6 +128,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "http://udottraffic.utah.gov/1_devices/aux16216.jpeg",
+    "type": "webcam",
     "zone": "Big Cottonwood Canyon"
   },
   {
@@ -127,6 +139,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "http://udottraffic.utah.gov/1_devices/aux16265.jpeg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -137,6 +150,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "http://udottraffic.utah.gov/1_devices/aux14604.jpeg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   },
   {
@@ -147,6 +161,7 @@
     "latitude": "40.590701",
     "longitude": "-111.626864",
     "url": "http://udottraffic.utah.gov/1_devices/aux16269.jpeg",
+    "type": "webcam",
     "zone": "Little Cottonwood Canyon"
   }
 ]

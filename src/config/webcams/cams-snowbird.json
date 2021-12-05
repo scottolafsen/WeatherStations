@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "name": "Gad 2 Snow stake",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.559477",
+    "longitude": "-111.662943",
+    "url": "https://img.hdrelay.com/frames/8611e276-7ee5-42c0-b8cd-d9e1890e1cd4/default/last.jpg",
+    "type": "webcam time-lapse hdrelay",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 2,
+    "name": "Mineral Basin",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.560273",
+    "longitude": "-111.645307",
+    "url": "https://img.hdrelay.com/frames/5780754f-8da1-4223-ab8a-6755d84cbc10/default/last.jpg",
+    "type": "webcam time-lapse hdrelay",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 3,
+    "name": "Peruvian",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.582371",
+    "longitude": "-111.654124",
+    "url": "https://img.hdrelay.com/frames/544432bd-3910-4888-aa9f-14b6f51a7eb5/default/last.jpg",
+    "type": "webcam time-lapse hdrelay",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 4,
+    "name": "Regulator",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.560255",
+    "longitude": "-111.663141",
+    "url": "https://img.hdrelay.com/frames/db2a69c5-66e9-4c48-a713-919eaf191fc1/default/last.jpg",
+    "type": "webcam time-lapse hdrelay",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 5,
+    "name": "Hidden Peak",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.560827",
+    "longitude": "-111.645178",
+    "url": "https://storage.roundshot.com/5d7715f0795180.06920267/hiddenpeak-800-450.jpg",
+    "type": "webcam roundshot",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 6,
+    "name": "Powder Paradise",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.560273",
+    "longitude": "-111.645307",
+    "url": "https://storage.roundshot.com/5d7715f0795180.06920267/powderparadise-800-450.jpg",
+    "type": "webcam roundshot",
+    "zone": "Little Cottonwood Canyon"
+  },
+  {
+    "id": 7,
+    "name": "Hidden Peak Panocam",
+    "description": "",
+    "owner": "Snowbird",
+    "latitude": "40.560827",
+    "longitude": "-111.645178",
+    "url": "https://snowbird.roundshot.com/tv/#/",
+    "type": "webcam roundshot panorama",
+    "zone": "Little Cottonwood Canyon"
+  }
+]
